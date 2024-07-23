@@ -1,10 +1,10 @@
 const getUserChoice = userInput => {
     userInput = userInput.toLowerCase();
-
     if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
         return userInput;
     } else {
-        console.log('Error!');
+        alert('Error! Invalid choice.');
+        return null;
     }
 };
 
@@ -18,46 +18,50 @@ const getComputerChoice = () => {
         case 2:
             return 'scissors';
     }
-}
+};
 
 const determineWinner = (userChoice, computerChoice) => {
     if (userChoice === computerChoice) {
-        return console.log('the game was a tie')
+        return 'The game is a tie!';
     }
 
     if (userChoice === 'rock') {
         if (computerChoice === 'paper') {
-            return 'computer wins';
+            return 'Computer wins!';
         } else {
-            return 'user wins'
+            return 'User wins!';
         }
     }
 
     if (userChoice === 'paper') {
-        computerChoice === 'rock' || 'scissors';
         if (computerChoice === 'rock') {
-            return 'user wins';
-        } else if (computerChoice === 'scissors') {
-            return 'computer wins'
+            return 'User wins!';
+        } else {
+            return 'Computer wins!';
         }
     }
 
     if (userChoice === 'scissors') {
-        computerChoice === 'paper' || 'rock';
         if (computerChoice === 'paper') {
-            return 'user wins';
-        } else if (computerChoice === 'rock') {
-            return 'computer wins'
+            return 'User wins!';
+        } else {
+            return 'Computer wins!';
         }
     }
-}
 
-const playGame = () => {
-    const userChoice = getUserChoice('rock' || 'paper' || 'scissors');
-    const computerChoice = getComputerChoice();
-    console.log('you chose: ' + userChoice);
-    console.log('computer chose: ' + computerChoice);
-    console.log(determineWinner(userChoice, computerChoice))
+    if (userChoice === 'bomb') {
+        return 'User wins by default!';
+    }
 };
 
-playGame();
+const playGame = () => {
+    const userChoice = getUserChoice(document.getElementById('userChoice').value);
+    if (!userChoice) {
+        return; // Stop the game if the user input is invalid
+    }
+
+    const computerChoice = getComputerChoice();
+    const result = determineWinner(userChoice, computerChoice);
+
+    document.getElementById('result').innerHTML = `You chose: ${userChoice}<br>Computer chose: ${computerChoice}<br>${result}`;
+};
