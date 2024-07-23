@@ -1,16 +1,7 @@
-# Rock, Paper, or Scissors
+# Rock Paper Scissors Game
 
-Rock paper scissors is a classic two player game. Each player chooses either rock, paper, or scissors. The items are compared, and whichever player chooses the more powerful item wins.
+This project is a simple browser-based Rock Paper Scissors game where users can play against the computer. The game is implemented in JavaScript and displays the result dynamically on a webpage.
 
-The possible outcomes are:
+## Project Description
 
-Rock destroys scissors.
-Scissors cut paper.
-Paper covers rock.
-If there’s a tie, then the game ends in a draw.
-Our code will break the game into four parts:
-
-Get the user’s choice.
-Get the computer’s choice.
-Compare the two choices and determine a winner.
-Start the program and display the results.
+The Rock Paper Scissors Game allows users to input their choice of rock, paper, scissors, or a special "bomb" option, which guarantees a win. The computer randomly selects its choice, and the game determines the winner based on the standard rules of Rock Paper Scissors.
